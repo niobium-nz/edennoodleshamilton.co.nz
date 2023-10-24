@@ -3038,7 +3038,7 @@ h1, h2, h3, h4, h5,
             display: inline-block;
             border: 1px solid transparent;
             background: #fff;
-            width: 16.6%;
+            width: 25%;
             -webkit-border-radius: 0;
             -moz-border-radius: 0;
             -ms-border-radius: 0;
@@ -3056,12 +3056,12 @@ h1, h2, h3, h4, h5,
                 margin: 0 auto;
                 border-style: solid;
                 border-width: 10px 10px 0 10px;
-                border-color: #c8a97e transparent transparent transparent;
+                border-color: #BE4603 transparent transparent transparent;
                 opacity: 0;
             }
 
             .ftco-search .nav-pills .nav-link:hover {
-                background: #c09d6c;
+                background: #dd611c;
                 color: #fff;
             }
 
@@ -3073,7 +3073,7 @@ h1, h2, h3, h4, h5,
                 -ms-transition: all 0.3s ease;
                 transition: all 0.3s ease;
                 border: 1px solid transparent;
-                background: #c8a97e;
+                background: #BE4603;
             }
 
                 .ftco-search .nav-pills .nav-link.active:after {
