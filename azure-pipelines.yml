@@ -25,4 +25,5 @@ stages:
       cdnCustomDomainName: 'www.xiexie.co.nz'
       enableCdn: true
       checkoutDevopsStep:
-        checkout: devops
+       checkout: self
+       checkout: devops
