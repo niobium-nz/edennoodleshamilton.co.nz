@@ -6,7 +6,6 @@ variables:
   serviceConnection: 'xiexie'
   serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
   resourceGroupName: 'xiexie'
-  enableCdn: true
   cdnCustomDomainName: 'www.xiexie.co.nz'
 
 pool:
@@ -31,4 +30,4 @@ stages:
       resourceGroupName: $(resourceGroupName)
       storageAccountName: 'web$(resourceGroupName)'
       cdnCustomDomainName: $(cdnCustomDomainName)
-      enableCdn: $(enableCdn)
+      enableCdn: true
