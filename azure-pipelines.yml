@@ -29,5 +29,6 @@ stages:
       serviceConnectionId: $(serviceConnectionId)
       azureServiceConnection: $(serviceConnection)
       resourceGroupName: $(resourceGroupName)
+      storageAccountName: 'web$(resourceGroupName)'
       cdnCustomDomainName: $(cdnCustomDomainName)
       enableCdn: $(enableCdn)
