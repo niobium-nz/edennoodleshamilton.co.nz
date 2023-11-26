@@ -13,6 +13,19 @@ resources:
     ref: master
 
 stages:
+- stage: Build
+  displayName: Build
+  jobs:
+  - job: Stage
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Drop Static Website'
+      inputs:
+        Contents: '$(System.DefaultWorkingDirectory)/src/**'
+        TargetFolder: $(Build.ArtifactStagingDirectory)
+    - publish: $(Build.ArtifactStagingDirectory)
+      artifact: drop
+
 - stage: Production
   jobs:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
