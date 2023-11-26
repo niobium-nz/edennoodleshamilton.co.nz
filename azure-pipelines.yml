@@ -1,15 +1,8 @@
 trigger:
 - master
 
-variables:
-  buildAgentVmImage: 'windows-latest'
-  serviceConnection: 'xiexie'
-  serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
-  resourceGroupName: 'xiexie'
-  cdnCustomDomainName: 'www.xiexie.co.nz'
-
 pool:
-  vmImage: $(buildAgentVmImage)
+  vmImage: 'windows-latest'
 
 resources: 
   repositories:
@@ -24,12 +17,12 @@ stages:
   jobs:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
-      buildAgentVmImage: $(buildAgentVmImage)
-      serviceConnectionId: $(serviceConnectionId)
-      azureServiceConnection: $(serviceConnection)
-      resourceGroupName: $(resourceGroupName)
-      storageAccountName: 'web$(resourceGroupName)'
-      cdnCustomDomainName: $(cdnCustomDomainName)
+      buildAgentVmImage: 'windows-latest'
+      serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
+      azureServiceConnection: 'xiexie'
+      resourceGroupName: 'xiexie'
+      storageAccountName: 'websitexiexie'
+      cdnCustomDomainName: 'www.xiexie.co.nz'
       enableCdn: true
       checkoutDevopsStep:
         checkout: devops
