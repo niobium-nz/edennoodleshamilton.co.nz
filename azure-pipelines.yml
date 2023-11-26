@@ -31,3 +31,5 @@ stages:
       storageAccountName: 'web$(resourceGroupName)'
       cdnCustomDomainName: $(cdnCustomDomainName)
       enableCdn: true
+      checkoutDevopsStep:
+        checkout: devops
