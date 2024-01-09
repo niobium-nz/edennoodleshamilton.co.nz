@@ -23,7 +23,7 @@ stages:
       inputs:
         Contents: '$(System.DefaultWorkingDirectory)/src/**'
         TargetFolder: $(Build.ArtifactStagingDirectory)
-    - publish: $(Build.ArtifactStagingDirectory)
+    - publish: $(Build.ArtifactStagingDirectory)/src
       artifact: drop
 
 - stage: Production
