@@ -1,5 +1,6 @@
 trigger:
 - master
+- feature/*
 
 pool:
   vmImage: 'windows-latest'
@@ -26,7 +27,21 @@ stages:
     - publish: $(Build.ArtifactStagingDirectory)/src
       artifact: drop
 
+- stage: Test
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/'))
+  jobs:
+  - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
+    parameters:
+      buildAgentVmImage: 'windows-latest'
+      serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
+      azureServiceConnection: 'xiexie'
+      resourceGroupName: 'xiexietest'
+      storageAccountName: 'websitexiexietest'
+      checkoutDevopsStep:
+       checkout: devops
+
 - stage: Production
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
