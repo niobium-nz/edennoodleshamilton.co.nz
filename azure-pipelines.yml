@@ -5,6 +5,7 @@ trigger:
 variables:
   isProduction: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
   isTest: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/')]
+  branchName: $[variables['Build.SourceBranch']]
 
 pool:
   vmImage: 'windows-latest'
@@ -30,6 +31,9 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - publish: $(Build.ArtifactStagingDirectory)/src
       artifact: drop
+    - script: echo $(branchName)
+    - script: echo $(isProduction)
+    - script: echo $(isTest)
 
 - stage: Test
   condition: and(succeeded(), eq(variables.isTest, true))
