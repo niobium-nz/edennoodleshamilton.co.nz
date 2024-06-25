@@ -2,6 +2,10 @@ trigger:
 - master
 - feature/*
 
+variables:
+  isProduction: $[eq(variables['Build.SourceBranch'], 'refs/heads/master')]
+  isTest: $[startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/')]
+
 pool:
   vmImage: 'windows-latest'
 
@@ -28,7 +32,7 @@ stages:
       artifact: drop
 
 - stage: Test
-  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/feature/'))
+  condition: and(succeeded(), eq(variables.isTest, true))
   jobs:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
@@ -41,7 +45,7 @@ stages:
        checkout: devops
 
 - stage: Production
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), eq(variables.isProduction, true))
   jobs:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
