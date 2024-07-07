@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+    <script src="js/azure-storage.table.min.js"></script>
+</head>
+<body>
+
+    <script>
+        var accountUri = 'https://websitexiexietest.table.core.windows.net';
+        var tableName = 'Menu';
+        var sas = '?sv=2019-02-02&st=2024-07-07T07%3A23%3A27Z&se=2029-07-08T07%3A23%3A00Z&sp=r&sig=uOtPlvxemBiK9Oc2IP3yBXpJoRLN3hBnGyYRzUkQd7s%3D&tn=Menu';
+        var maxResult = 1000;
+        var tableService = AzureStorage.Table.createTableServiceWithSas(accountUri, sas);
+        var tableQuery = new AzureStorage.Table.TableQuery().top(maxResult);
+        tableService.queryEntities(tableName, tableQuery, null, function (error, results) {
+            if (error) {
+                // Query entities error
+            } else {
+                for (var i = 0, entity; entity = results.entries[i]; i++) {
+                    console.log(`Entity[${i}] PK=${entity.PartitionKey._} RK=${entity.RowKey._}`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
