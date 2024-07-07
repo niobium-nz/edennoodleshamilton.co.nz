@@ -41,6 +41,7 @@ stages:
       azureServiceConnection: 'xiexie'
       resourceGroupName: 'xiexietest'
       storageAccountName: 'websitexiexietest'
+      allowedOrigins: ['https://websitexiexietest.z8.web.core.windows.net']
       checkoutDevopsStep:
        checkout: devops
 
@@ -55,6 +56,7 @@ stages:
       resourceGroupName: 'xiexie'
       storageAccountName: 'websitexiexie'
       cdnCustomDomainName: 'www.xiexie.co.nz'
+      allowedOrigins: ['https://www.xiexie.co.nz', 'https://websitexiexie.z8.web.core.windows.net']
       enableCdn: true
       checkoutDevopsStep:
        checkout: devops
