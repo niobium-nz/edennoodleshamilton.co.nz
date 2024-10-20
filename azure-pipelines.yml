@@ -37,7 +37,6 @@ stages:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
       buildAgentVmImage: 'windows-latest'
-      serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
       azureServiceConnection: 'xiexie'
       resourceGroupName: 'xiexietest'
       storageAccountName: 'websitexiexietest'
@@ -51,7 +50,6 @@ stages:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
       buildAgentVmImage: 'windows-latest'
-      serviceConnectionId: 'ef0e53dc-dfd5-4d75-844e-35829b44e3bb'
       azureServiceConnection: 'xiexie'
       resourceGroupName: 'xiexie'
       storageAccountName: 'websitexiexie'
