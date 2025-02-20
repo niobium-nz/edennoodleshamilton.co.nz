@@ -15,7 +15,7 @@ resources:
     endpoint: CodRepo
     type: git
     name: cod/Cod.Infrastructures
-    ref: main
+    ref: master
 
 stages:
 - stage: Build
@@ -37,10 +37,9 @@ stages:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
       buildAgentVmImage: 'windows-latest'
-      azureServiceConnection: 'xiexie'
-      resourceGroupName: 'xiexietest'
-      storageAccountName: 'websitexiexietest'
-      allowedOrigins: ['https://websitexiexietest.z8.web.core.windows.net']
+      azureServiceConnection: 'niobium-edennooldes'
+      resourceGroupName: 'niobium-edennooldes-test'
+      storageAccountName: 'websiteedennooldestest'
       checkoutDevopsStep:
        checkout: devops
 
@@ -50,11 +49,9 @@ stages:
   - template: pipelines/jobs/StaticWebsiteDeploy.yml@devops
     parameters:
       buildAgentVmImage: 'windows-latest'
-      azureServiceConnection: 'xiexie'
-      resourceGroupName: 'xiexie'
-      storageAccountName: 'websitexiexie'
-      cdnCustomDomainName: 'www.xiexie.co.nz'
-      allowedOrigins: ['https://www.xiexie.co.nz', 'https://websitexiexie.z8.web.core.windows.net']
-      enableCdn: true
+      azureServiceConnection: 'niobium-edennooldes'
+      resourceGroupName: 'niobium-edennooldes'
+      storageAccountName: 'websiteedennooldes'
+      enableCdn: false
       checkoutDevopsStep:
-       checkout: devops
+        checkout: devops
