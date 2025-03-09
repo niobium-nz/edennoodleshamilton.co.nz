@@ -42,12 +42,13 @@ def process_includes(source, includes, built):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python build.py <source_directory> <includes_directory> <build_output_directory>")
-        sys.exit(1)
-    
-    source_dir = sys.argv[1]
-    includes_dir = sys.argv[2]
-    build_output_dir = sys.argv[3]
+    if len(sys.argv) == 3:
+        source_dir = sys.argv[1]
+        includes_dir = sys.argv[2]
+        build_output_dir = sys.argv[3]
+    else
+        source_dir = "src"
+        includes_dir = "includes"
+        build_output_dir = "built"
     
     process_includes(source_dir, includes_dir, build_output_dir)
