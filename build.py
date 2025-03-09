@@ -4,7 +4,9 @@ import re
 import sys
 
 def process_includes(source, includes, built):
+    print(f"Copying files from {source} into {built}...")
     shutil.copytree(source, built)
+    print("Done.")
 
     pattern = re.compile(r"<!--\$\s*([a-zA-Z0-9-_]+\.[a-zA-Z0-9]+)\s*\$-->")
     print(f"Processing includes for HTML files in: {built}")
@@ -31,7 +33,7 @@ def process_includes(source, includes, built):
                     
                     placeholder = f"<!--$ {match} $-->"
                     html = html.replace(placeholder, include_content)
-                    print(f"Expanded {match} in {file_path}")
+                    print(f"Expanded {match} on {file_path}")
                     dirty = True
                 
                 if dirty:
@@ -46,7 +48,7 @@ if __name__ == "__main__":
         source_dir = sys.argv[1]
         includes_dir = sys.argv[2]
         build_output_dir = sys.argv[3]
-    else
+    else:
         source_dir = "src"
         includes_dir = "includes"
         build_output_dir = "built"
