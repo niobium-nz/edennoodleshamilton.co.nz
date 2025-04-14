@@ -1219,6 +1219,19 @@ input[type="date" i] {
 }
 
 @media (max-width: 992px) {
+  .certs{
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    margin-top: 30px;
+   
+  }
+
+  .certs img{
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
   .blo2 {
     width: 80%;
     margin-left: auto;
@@ -1260,6 +1273,20 @@ input[type="date" i] {
 }
 
 @media (max-width: 576px) {
+  .certs{
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    margin-top: 30px;
+   
+  }
+
+  .certs img{
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+
   .blo2 {
     width: 100%;
   }
@@ -1277,6 +1304,11 @@ input[type="date" i] {
 
 }
 
+.certs{
+  width: 100%;
+  display: none;
+  flex-direction: column;
+}
 
 /*[ Video ]
 ///////////////////////////////////////////////////////////
