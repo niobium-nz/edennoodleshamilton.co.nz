@@ -351,6 +351,11 @@
 								<li>
 									<a href="about.html">About</a>
 								</li>
+
+								<li>
+									<a href="promotion.html">Promotion</a>
+								</li>
+
 								<!-- 
 								<li>
 									<a href="blog.html">Blog</a>
@@ -399,6 +404,9 @@
 
 			<li class="t-center m-b-13">
 				<a href="about.html" class="txt19">About</a>
+			</li>
+			<li class="t-center m-b-33">
+				<a href="promotion.html" class="txt19">Promotion</a>
 			</li>
 
 			<!-- <li class="t-center m-b-13">
@@ -502,10 +510,9 @@
 
 							<div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false"
 								data-appear="zoomIn">
-								<a href="#" class="wrap-pic-blo2 bg1-blo2"
-									>
+								<a href="#" class="wrap-pic-blo2 bg1-blo2">
 									<!-- style="background-image: url(images/xiexie/event-01.png);background-size: 100%;" -->
-									<img src="images/xiexie/event-01.png" class="wrap-pic-blo2-img"/>
+									<img src="images/xiexie/event-01.png" class="wrap-pic-blo2-img" />
 									<div class="time-event size10 txt6 effect1" style="position: absolute;top: 0;">
 										<span class="txt-effect1 flex-c-m t-center">
 											11:00 AM Wednesday - 30 April 2025
@@ -522,8 +529,10 @@
 										Join us for the grand opening of <strong>Eden Noodles Cafe</strong> and enjoy
 										the bold, authentic flavours of Sichuan — for just <strong>$1</strong>!
 									</p>
-									<p class="">For one day only, every customer will receive a <strong>$1 voucher</strong> to use on one
-										of our <strong>signature dishes</strong>. It’s our way of saying thank you and welcoming you to
+									<p class="">For one day only, every customer will receive a <strong>$1
+											voucher</strong> to use on one
+										of our <strong>signature dishes</strong>. It’s our way of saying thank you and
+										welcoming you to
 										our new home.
 									</p>
 									<p class="">Come early, bring your appetite, and discover why Eden Noodles Cafe is
@@ -565,7 +574,8 @@
 										<div class="wrap-btn-booking flex-c-m m-t-10">
 											<!-- Button3 -->
 											<button type="submit" id="submit"
-												class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1" style="width: 230px;">
+												class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1"
+												style="width: 230px;">
 												<span>Claim Your Coupon Now!</span>
 											</button>
 											<div id="sent" class="sent" style="display: none;">Sent</div>
@@ -573,11 +583,11 @@
 									</form>
 
 									<div class="certs">
-										<img src="images/xiexie/act-cert-1.png"/>
-										<img src="images/xiexie/act-cert-2.png"/>
-										<img src="images/xiexie/act-cert-3.png"/>
-										<img src="images/xiexie/act-cert-4.png"/>
-										<img src="images/xiexie/act-cert-5.png"/>
+										<img src="images/xiexie/act-cert-1.png" />
+										<img src="images/xiexie/act-cert-2.png" />
+										<img src="images/xiexie/act-cert-3.png" />
+										<img src="images/xiexie/act-cert-4.png" />
+										<img src="images/xiexie/act-cert-5.png" />
 									</div>
 
 								</div>
@@ -1053,6 +1063,11 @@
 		});
 
 
+		function getQueryParam(name) {
+			const params = new URLSearchParams(window.location.search);
+			return params.get(name);
+		}
+
 		function myFunction() {
 			try {
 				grecaptcha.ready(function () {
@@ -1065,12 +1080,17 @@
 						$("#submit").append('<div class="spinner"></div>');
 					}
 
+					let source = getQueryParam('from');
+					if(!source){
+						source = "";
+					}
+					
 					grecaptcha.execute("6Lc40QkrAAAAAFrU4QsisFutWvuC9F5sDNpXLLiP", { action: "submit" }).then(function (token) {
 						let data = {
 							id: generateGUID(),
 							tenant: "www.edennoodleshamilton.co.nz",
 							campaign: "OneDollarVoucher",
-							source: "Google", //Google或Facebook
+							source: source, //Google或Facebook
 							firstName: $("#realname").val(),
 							lastName: null,
 							email: $("#email").val(),
