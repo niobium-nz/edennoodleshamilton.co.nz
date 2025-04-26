@@ -515,7 +515,7 @@
 									<img src="images/xiexie/event-01.png" class="wrap-pic-blo2-img" />
 									<div class="time-event size10 txt6 effect1" style="position: absolute;top: 0;">
 										<span class="txt-effect1 flex-c-m t-center">
-											11:00 AM Wednesday - 30 April 2025
+											Saturday 24 May 2025
 										</span>
 									</div>
 								</a>
@@ -526,23 +526,28 @@
 									</h4>
 
 									<p class="">
-										Join us for the grand opening of <strong>Eden Noodles Cafe</strong> and enjoy
+										Join us for the grand opening of <strong>Eden Noodles Cafe in Hamilton</strong> and enjoy
 										the bold, authentic flavours of Sichuan — for just <strong>$1</strong>!
 									</p>
-									<p class="">For one day only, every customer will receive a <strong>$1
-											voucher</strong> to use on one
+									<p class="">
+										For one day only, you are eligible to claim a <strong>
+											$1
+											voucher
+										</strong> to use on one
 										of our <strong>signature dishes</strong>. It’s our way of saying thank you and
 										welcoming you to
 										our new home.
 									</p>
-									<p class="">Come early, bring your appetite, and discover why Eden Noodles Cafe is
-										the perfect spot for a quick, satisfying bite!</p>
+									<p class="">
+										Come early, bring your appetite, and discover why Eden Noodles Cafe is
+										the perfect spot for a quick, satisfying bite!
+									</p>
 
 
 
 
 									<form class="wrap-form-reservation m-t-10" onsubmit="return false;" method="post"
-										id="contactForm" style="width: 100%;">
+										  id="contactForm" style="width: 100%;">
 										<input name="code" id="code" type="hidden">
 
 										<div class="row m-t-10">
@@ -554,7 +559,7 @@
 
 												<div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
 													<input class="bo-rad-10 sizefull txt10 p-l-20 valid" type="text"
-														name="realname" id="realname" placeholder="Enter your name">
+														   name="realname" id="realname" placeholder="Enter your name">
 												</div>
 											</div>
 
@@ -566,7 +571,7 @@
 
 												<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
 													<input class="bo-rad-10 sizefull txt10 p-l-20 valid" type="text"
-														name="email" id="email" placeholder="Enter your email address">
+														   name="email" id="email" placeholder="Enter your email address">
 												</div>
 											</div>
 										</div>
@@ -574,12 +579,13 @@
 										<div class="wrap-btn-booking flex-c-m m-t-10">
 											<!-- Button3 -->
 											<button type="submit" id="submit"
-												class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1"
-												style="width: 230px;">
+													class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1"
+													style="width: 230px;">
 												<span>Claim Your Coupon Now!</span>
 											</button>
-											<div id="sent" class="sent" style="display: none;">Sent</div>
+											<div id="sent" class="sent" style="display: none;">Your voucher is on its way! If you don't see the email, please check your Spam or Promotions folder.</div>
 										</div>
+
 									</form>
 
 									<div class="certs">
@@ -588,6 +594,17 @@
 										<img src="images/xiexie/act-cert-3.png" />
 										<img src="images/xiexie/act-cert-4.png" />
 										<img src="images/xiexie/act-cert-5.png" />
+									</div>
+
+									<div class="row m-t-12">
+										<div class="col-md-10">
+											<span class="txt14" style="margin-right:10px">
+												<a href="terms.html" target="_blank">Terms</a>
+											</span>
+											<span class="txt14">
+												<a href="privacy.html" target="_blank">Privacy</a>
+											</span>
+										</div>
 									</div>
 
 								</div>
@@ -971,22 +988,6 @@
 		</span>
 	</div>
 
-	<!-- Modal Video 01-->
-	<div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
-
-		<div class="modal-dialog" role="document" data-dismiss="modal">
-			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
-
-			<div class="wrap-video-mo-01">
-				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
-				<div class="video-mo-01">
-					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0"
-						allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
@@ -1108,6 +1109,7 @@
 								$("#sent").show();
 								$("#submit").prop("disabled", false);
 								$("#submit").find(".spinner").remove();
+								gtag('event', 'manual_event_SUBMIT_LEAD_FORM');
 							},
 							error: function (xhr, status, error) {
 								console.error("Error:", error);
