@@ -34,6 +34,24 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
 	<!--$ gtag.html $-->
+	<!-- Google tag (gtag.js) event - delayed navigation helper -->
+	<script>
+		// Helper function to delay opening a URL until a gtag event is sent.
+		// Call it in response to an action that should navigate to a URL.
+		function gtagSendEvent(url) {
+			var callback = function () {
+				if (typeof url === 'string') {
+					window.location = url;
+				}
+			};
+			gtag('event', 'conversion_event_subscribe_paid', {
+				'event_callback': callback,
+				'event_timeout': 2000,
+				// <event_parameters>
+			});
+			return false;
+		}
+	</script>
 </head>
 
 <body class="animsition">
@@ -1109,7 +1127,7 @@
 								$("#sent").show();
 								$("#submit").prop("disabled", false);
 								$("#submit").find(".spinner").remove();
-								gtag('event', 'manual_event_SUBMIT_LEAD_FORM');
+								gtag_report_conversion();
 							},
 							error: function (xhr, status, error) {
 								console.error("Error:", error);
