@@ -1109,7 +1109,9 @@
 								$("#sent").show();
 								$("#submit").prop("disabled", false);
 								$("#submit").find(".spinner").remove();
-                                gtag('event', 'conversion_event_submit_lead_form');
+                                if (source && source.toLowerCase() == "google") {
+                                    gtag('event', 'conversion', { 'send_to': 'AW-17008123334/SlQsCNuL7sEaEMa7ja4_' });
+                                }
 							},
 							error: function (xhr, status, error) {
 								console.error("Error:", error);
