@@ -1109,8 +1109,7 @@
 								$("#sent").show();
 								$("#submit").prop("disabled", false);
 								$("#submit").find(".spinner").remove();
-                                gtag('event', 'conversion_event_subscribe_paid');
-                                gtag('event', 'manual_event_SUBMIT_LEAD_FORM');
+                                gtag('event', 'conversion_event_submit_lead_form');
 							},
 							error: function (xhr, status, error) {
 								console.error("Error:", error);
