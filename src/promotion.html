@@ -580,7 +580,7 @@
 											<!-- Button3 -->
 											<button type="submit" id="submit"
 													class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1"
-													style="width: 230px;">
+													style="width: 256px;">
 												<span>Claim Your Voucher Now!</span>
 											</button>
 											<div id="sent" class="sent" style="display: none;">Great! We've sent your personalised voucher to you. If you don't see it in your email, please check your Spam or Promotions folder by looking for an email with the subject line &quot;The $1 Eden Noodles Voucher You Requested&quot;.</div>
@@ -596,8 +596,8 @@
 										<img src="images/xiexie/act-cert-5.png" />
 									</div>
 
-									<div class="row m-t-12">
-										<div class="col-md-10">
+									<div style="width: 100%;">
+										<div  style="display: flex;justify-content: left;margin-top: 20px;">
 											<span class="txt14" style="margin-right:10px">
 												<a href="terms.html" target="_blank">Terms</a>
 											</span>
@@ -1069,6 +1069,25 @@
 			return params.get(name);
 		}
 
+		function myFunction1() {
+			$("#submit").hide();
+			$("#sent").show();
+								// $("#submit").prop("disabled", false);
+								// $("#submit").find(".spinner").remove();
+
+
+					// 			$("#sent").hide();
+					// $("#submit").prop("disabled", true);
+
+					// // 添加转圈动画
+					// if (!$("#submit").find(".spinner").length) {
+					// 	$("#submit").append('<div class="spinner"></div>');
+					// }
+
+		}
+
+
+
 		function myFunction() {
 			try {
 				grecaptcha.ready(function () {
@@ -1106,6 +1125,7 @@
 							data: JSON.stringify(data),
 							success: function (response) {
 								console.log("Success:", response);
+								$("#submit").hide();
 								$("#sent").show();
 								$("#submit").prop("disabled", false);
 								$("#submit").find(".spinner").remove();
@@ -1154,8 +1174,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 13px 22px;
-			font-size: 20px;
+			padding: 0px 10px;
+			font-size: 16px;
 			color: #3c9cff;
 		}
 
