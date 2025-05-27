@@ -48,6 +48,11 @@
 		}(window, document, 'script',
 			'https://connect.facebook.net/en_US/fbevents.js');
 		fbq('init', '1417705619262501');
+        let f1 = getQueryParam('from');
+        let f2 = getQueryParam('fbclid');
+		if (f1 || f2) {
+			fbq('track', 'PageView');
+		}
 	</script>
 	<!-- End Meta Pixel Code -->
 </head>
@@ -1086,7 +1091,7 @@
 					if (!source) {
 						if (fbclid) {
 							source = "Facebook";
-                            fbq('track', 'PageView');
+                            fbq('track', 'Conversion');
 						} else {
 							source = "";
 						}
