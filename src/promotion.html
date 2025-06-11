@@ -488,12 +488,13 @@
 						<div class="container">
 							<div class="title-event t-center m-b-32">
 								<span class="tit2 p-l-15 p-r-15" style="color: white;">
-									Grand Opening Feast
+									<!--Grand Opening Feast-->
+									This campaign is now ended. Thank you for your interest!
 								</span>
 
-								<h3 class="tit6 t-center p-l-15 p-r-15 p-t-3" style="color: #d61c22;font-size: 47px;">
-									$1 Treats!
-								</h3>
+                                <h3 class="tit6 t-center p-l-15 p-r-15 p-t-3" style="color: #d61c22;font-size: 47px;">
+                                    $1 Treats!
+                                </h3>
 							</div>
 
 							<div class="blo2 flex-w flex-str flex-col-c-m-lg animated visible-false"
@@ -569,7 +570,7 @@
 											<button type="submit" id="submit"
 													class="btn3 flex-c-m size31 txt11 trans-0-4 button button-contactForm btn_1"
 													style="width: 256px;">
-												<span>Claim Your Voucher Now!</span>
+												<span>Campaign Ended <!--Claim Your Voucher Now!--></span>
 											</button>
 											<div id="sent" class="sent" style="display: none;">Great! We've sent your personalised voucher to you. If you don't see it in your email, please check your Spam or Promotions folder by looking for an email with the subject line &quot;The $1 Eden Noodles Voucher You Requested&quot;.</div>
 										</div>
@@ -1079,6 +1080,7 @@
 					// 设置按钮不可点击
 					$("#sent").hide();
 					$("#submit").prop("disabled", true);
+					return;
 
 					// 添加转圈动画
 					if (!$("#submit").find(".spinner").length) {
